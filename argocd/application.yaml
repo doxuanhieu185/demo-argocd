@@ -6,9 +6,8 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: demo-static-site=dohieu825/demo-static-site
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/demo-static-site.update-strategy: latest
+    argocd-image-updater.argoproj.io/demo-static-site.update-strategy: newest-build
     argocd-image-updater.argoproj.io/git-branch: main
-    argocd-image-updater.argoproj.io/write-back-target: kustomization:k8s/kustomization.yaml
 spec:
   project: default
   source:

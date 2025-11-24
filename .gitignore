@@ -1,0 +1,10 @@
+# Git credentials (contains secrets)
+setup-git-credentials.yaml
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

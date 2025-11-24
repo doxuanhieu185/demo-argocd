@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: dohieu825/demo-static-site:latest
+        image: dohieu825/demo-static-site  # Kustomize sẽ tự động thêm tag
         ports:
         - containerPort: 80
         resources:

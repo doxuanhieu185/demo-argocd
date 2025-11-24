@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - dohieu825/demo-static-site:b6f5893a471f63c5e6a075a6b13e10f18cd741c1

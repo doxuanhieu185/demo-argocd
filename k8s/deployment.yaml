@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-static-site
+  namespace: default
+  labels:
+    app: demo-static-site
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-static-site
+  template:
+    metadata:
+      labels:
+        app: demo-static-site
+    spec:
+      containers:
+      - name: nginx
+        image: dohieu825/demo-static-site:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"

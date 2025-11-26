@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: demo-static-site-monitor
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: demo-static-site
+  endpoints:
+  - port: http
+    interval: 30s
+    path: /metrics

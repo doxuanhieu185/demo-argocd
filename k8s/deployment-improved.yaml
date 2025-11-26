@@ -7,6 +7,11 @@ metadata:
     app: demo-static-site
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: demo-static-site
@@ -17,9 +22,21 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: dohieu825/demo-static-site  
+        image: dohieu825/demo-static-site
         ports:
         - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
         resources:
           requests:
             memory: "64Mi"

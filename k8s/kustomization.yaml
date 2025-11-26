@@ -4,7 +4,16 @@ kind: Kustomization
 resources:
 - deployment.yaml
 - service.yaml
+- hpa.yaml
+- pdb.yaml
+- configmap.yaml
+- ingress.yaml
+- servicemonitor.yaml
 
 images:
 - name: dohieu825/demo-static-site
   newTag: latest
+
+commonLabels:
+  app: demo-static-site
+  version: v1.0.0
